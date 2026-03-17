@@ -1,0 +1,259 @@
+winlogbeat.event_logs:
+  - name: Application
+    event_id: 1518, 1511, 1000, 1001, 1002, 95, 1022, 1033
+
+  - name: Setup
+    event_id: 2, 1009
+
+  - name: Security
+    processors:
+      - drop_event.when.not.or:
+          - equals.winlog.event_id: "1100"
+          - equals.winlog.event_id: "1102"
+          - equals.winlog.event_id: "4740"
+          - equals.winlog.event_id: "4616"
+          - equals.winlog.event_id: "4688"
+          - equals.winlog.event_id: "4648"
+          - equals.winlog.event_id: "4781"
+          - equals.winlog.event_id: "4733"
+          - equals.winlog.event_id: "4776"
+          - equals.winlog.event_id: "5376"
+          - equals.winlog.event_id: "5377"
+          - equals.winlog.event_id: "4625"
+          - equals.winlog.event_id: "4634"
+          - equals.winlog.event_id: "4663"
+          - equals.winlog.event_id: "4672"
+          - equals.winlog.event_id: "4720"
+          - equals.winlog.event_id: "4722"
+          - equals.winlog.event_id: "4793"
+          - equals.winlog.event_id: "4731"
+          - equals.winlog.event_id: "4735"
+          - equals.winlog.event_id: "4766"
+          - equals.winlog.event_id: "4765"
+          - equals.winlog.event_id: "4624"
+          - equals.winlog.event_id: "4726"
+          - equals.winlog.event_id: "4725"
+          - equals.winlog.event_id: "4767"
+          - equals.winlog.event_id: "4728"
+          - equals.winlog.event_id: "4732"
+          - equals.winlog.event_id: "4756"
+          - equals.winlog.event_id: "4704"
+          - equals.winlog.event_id: "4886"
+          - equals.winlog.event_id: "4890"
+          - equals.winlog.event_id: "4874"
+          - equals.winlog.event_id: "4873"
+          - equals.winlog.event_id: "4870"
+          - equals.winlog.event_id: "4887"
+          - equals.winlog.event_id: "4885"
+          - equals.winlog.event_id: "4891"
+          - equals.winlog.event_id: "4888"
+          - equals.winlog.event_id: "4898"
+          - equals.winlog.event_id: "4882"
+          - equals.winlog.event_id: "4892"
+          - equals.winlog.event_id: "4880"
+          - equals.winlog.event_id: "4881"
+          - equals.winlog.event_id: "4900"
+          - equals.winlog.event_id: "4899"
+          - equals.winlog.event_id: "4896"
+          - equals.winlog.event_id: "4714"
+          - equals.winlog.event_id: "4713"
+          - equals.winlog.event_id: "4769"
+          - equals.winlog.event_id: "6273"
+          - equals.winlog.event_id: "6275"
+          - equals.winlog.event_id: "6274"
+          - equals.winlog.event_id: "6272"
+          - equals.winlog.event_id: "6278"
+          - equals.winlog.event_id: "6277"
+          - equals.winlog.event_id: "6279"
+          - equals.winlog.event_id: "6276"
+          - equals.winlog.event_id: "6280"
+          - equals.winlog.event_id: "5140"
+          - equals.winlog.event_id: "5136"
+          - equals.winlog.event_id: "5145"
+          - equals.winlog.event_id: "5144"
+          - equals.winlog.event_id: "4706"
+          - equals.winlog.event_id: "4897"
+          - equals.winlog.event_id: "4719"
+          - equals.winlog.event_id: "4716"
+          - equals.winlog.event_id: "4779"
+          - equals.winlog.event_id: "4778"
+          - equals.winlog.event_id: "5632"
+          - equals.winlog.event_id: "5137"
+          - equals.winlog.event_id: "5141"
+          - equals.winlog.event_id: "5136"
+          - equals.winlog.event_id: "5139"
+          - equals.winlog.event_id: "5138"
+          - equals.winlog.event_id: "5038"
+          - equals.winlog.event_id: "6281"
+          - equals.winlog.event_id: "4657"
+          - equals.winlog.event_id: "4782"
+          - equals.winlog.event_id: "4698"
+          - equals.winlog.event_id: "4699"
+          - equals.winlog.event_id: "4702"
+
+  - name: System
+    event_id: 7022, 7023, 7024, 7026, 7031, 7032, 7034, 6, 7045, 7000, 19, 1, 13, 12
+
+  - name: Microsoft-Windows-TerminalServices-RDPClient/Operational
+  - name: Microsoft-Windows-TerminalServices-ConnectionManager/Operational
+  - name: Microsoft-Windows-TerminalServices-LocalSessionManager/Operational
+  - name: Microsoft-Windows-RemoteDesktopServices-RdpCoreTS/Operational
+
+  - name: Microsoft-Windows-Application-Experience/Program-Inventory
+    event_id: 903, 904, 907, 908, 800, 905, 906
+
+  - name: Microsoft-Windows-TaskScheduler/Operational
+    event_id: 106, 107, 108, 110, 140, 141, 142, 200
+
+  - name: Microsoft-Windows-DNS-Client/Operational
+    event_id: 3008, 3020
+
+  - name: Microsoft-Windows-DNSServer/Analytical
+    event_id: 256, 257
+
+  - name: Microsoft-Windows-MPRMSG
+    event_id: 20250, 20274, 20275
+
+  - name: Microsoft-Windows-CertificateServicesClient-Lifecycle-System/Operational
+
+  - name: Microsoft-Windows-CertificateServicesClient-Lifecycle-User/Operational
+    event_id: 1006, 1004, 1007, 1003, 1001, 1002
+
+  - name: Microsoft-Windows-Bits-Client/Operational
+  - name: Microsoft-Windows-Ntfs/Operational
+  - name: Microsoft-Windows-Kernel-ShimEngine/Operational
+
+  - name: Microsoft-Windows-Kernel-General
+    event_id: 13, 12
+
+  - name: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
+    event_id: 2004, 2005, 2006, 2009, 2033
+
+  - name: Microsoft-Windows-Kernel-PnP/Device Configuration
+    event_id: 400, 410
+
+  - name: Microsoft-Windows-SMBServer/Security
+  - name: Microsoft-Windows-SmbClient/Security
+
+  - name: Microsoft-Windows-Windows Defender/Operational
+
+  - name: Microsoft-Windows-AppLocker/Packaged app-Deployment
+    event_id: 8023, 8020, 8025
+
+  - name: Microsoft-Windows-AppLocker/Packaged app-Execution
+    event_id: 8022
+
+  - name: Microsoft-Windows-AppLocker/EXE and DLL
+    event_id: 8002, 8003, 8004
+
+  - name: Microsoft-Windows-AppLocker/MSI and Script
+    event_id: 8005, 8006, 8007
+
+  - name: Microsoft-Windows-WinRM/Operational
+  - name: Microsoft-Windows-WMI-Activity/Operational
+
+  - name: Microsoft-Windows-LSA/Operational
+    event_id: 300
+
+  - name: Windows PowerShell
+    event_id: 169, 800
+
+  - name: Microsoft-Windows-PrintService/Operational
+    event_id: 307
+
+  - name: Microsoft-Windows-PrintService/Admin
+    event_id: 808, 31017, 326
+
+  - name: Microsoft-Windows-PowerShell/Operational
+    event_id: 4103, 4104, 4105, 4106, 40961, 40962, 24577, 8193, 8194, 8197, 53504
+
+  - name: Microsoft-Windows-PowerShell/Analytic
+    event_id: 32850, 32867, 32868
+
+  - name: Microsoft-Windows-SoftwareRestrictionPolicies
+    event_id: 865, 866, 867, 868, 882
+
+  - name: Microsoft-Windows-Sysmon/Operational
+
+  - name: User32
+    event_id: 1074
+
+  - name: Microsoft-Windows-WindowsUpdateClient/Operational
+    event_id: 20, 24, 25, 31, 34, 35
+
+  - name: Microsoft-Windows-CodeIntegrity/Operational
+    event_id: 3001, 3002, 3003, 3004, 3010, 3023
+
+  - name: Microsoft-Windows-WLAN-AutoConfig/Operational
+    event_id: 8003, 10000, 10001, 8000, 8011, 8001, 11000, 11001, 11002, 12011, 12012, 12013, 8002, 11004, 11005, 11010, 11006
+
+  - name: Microsoft-Windows-Partition/Diagnostic
+    event_id: 1006
+
+  - name: Microsoft-Windows-CAPI2/Operational
+    event_id: 11, 70, 90
+
+  - name: Microsoft-Windows-GroupPolicy/Operational
+
+  - name: Microsoft-Windows-AAD/Operational
+  - name: Microsoft-Windows-Authentication/AuthenticationPolicyFailures-DomainController
+  - name: Microsoft-Windows-Authentication/ProtectedUser-Client
+  - name: Microsoft-Windows-Authentication/ProtectedUserFailures-DomainController
+  - name: Microsoft-Windows-Authentication/ProtectedUserSuccesses-DomainController
+
+  - name: Microsoft-Windows-DriverFrameworks-UserMode/Operational
+
+  - name: Microsoft-Windows-NTLM/Operational
+    event_id: 8001, 8002, 8003, 8004
+
+# General metadata
+tags: ["windows", "winlogbeat", "dc", "security"]
+fields_under_root: true
+fields:
+  env: "lab"
+  site: "local"
+  role: "domain-controller"
+
+# Optional enrichment
+processors:
+  - add_host_metadata: ~
+  - add_cloud_metadata: ~
+  - add_fields:
+      target: ''
+      fields:
+        ingest_source: winlogbeat
+
+# Kibana setup
+setup.kibana:
+  host: "http://192.168.68.58:5601"
+
+# Index template settings
+setup.template.settings:
+  index.number_of_shards: 1
+  index.codec: best_compression
+
+setup.ilm.enabled: false
+
+# Send directly to Elasticsearch
+output.elasticsearch:
+  hosts: ["http://192.168.68.58:9200"]
+  username: "logstash_writer"
+  password: "password"
+  protocol: "http"
+  compression_level: 5
+  bulk_max_size: 200
+  worker: 1
+  indices:
+    - index: "winlogbeat-%{[agent.version]}-%{+yyyy.MM.dd}"
+
+# Logging
+logging.level: info
+logging.to_files: true
+logging.files:
+  path: C:/ProgramData/winlogbeat/Logs
+  name: winlogbeat
+  keepfiles: 7
+  permissions: 0640
+
+# Winlogbeat registry file
+winlogbeat.registry_file: C:/ProgramData/winlogbeat/.winlogbeat.yml
